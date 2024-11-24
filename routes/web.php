@@ -31,10 +31,9 @@ Route::get('/users', function () {
 
 // });
 
-Route::apiResource('/users', UserController::class)->withoutMiddleware(App\Http\Middleware\VerifyCsrfToken::class);
 
-Route::post('/login', [AuthenticationController::class, 'login'])->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
-Route::post('/logout', [AuthenticationController::class, 'logout'])->middleware('auth:sanctum');
-Route::inertia('/nav', 'Navbar/Nav');
-Route::inertia('/f', 'Footer/Footer');
-Route::inertia('/about', 'About/AboutUs', ['data' => 'welcome']);
+// Route::inertia('/nav', 'Navbar/Nav');
+// Route::inertia('/f', 'Footer/Footer');
+// Route::inertia('/about', 'About/AboutUs', ['data' => 'welcome']);
+
+

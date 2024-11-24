@@ -112,29 +112,29 @@ CREATE TABLE messages (
 CREATE TABLE resumes (
     resume_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
-    file_path VARCHAR(255),
-    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+        file_path VARCHAR(255),
+        uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id    ) REFERENCES users(user_id)
 );
 
 -- Reviews Table
 CREATE TABLE reviews (
-    review_id INT PRIMARY KEY AUTO_INCREMENT,
-    company_id INT NOT NULL,
-    user_id INT NOT NULL,
-    rating INT CHECK (rating BETWEEN 1 AND 5),
-    review_text TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (company_id) REFERENCES companies(company_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+        review_id INT PRIMARY KEY AUTO_INCREMENT,
+        company_id INT NOT NULL,
+        user_id INT NOT NULL,
+        rating INT CHECK (rating BETWEEN 1 AND 5),
+        review_text TEXT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (company_id) REFERENCES companies(company_id),
+        FOREIGN     KEY (user_id) REFERENCES users(user_id)
 );
 
--- Notifications Table
+--  Notifications Table
 CREATE TABLE notifications (
-    notification_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
-    message TEXT NOT NULL,
-    read_status BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+notification_id INT PRIMARY KEY AUTO_INCREMENT,
+            user_id INT NOT NULL,
+            message TEXT NOT NULL,
+            read_status BOOLEAN DEFAULT FALSE,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

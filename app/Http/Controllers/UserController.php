@@ -7,7 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
+
+
 {
+
+
+    public function index(){
+        return "index";
+    }
     public function update(Request $request, $id)
     {
         // Find the user by ID
@@ -16,12 +23,12 @@ class UserController extends Controller
         // Check if user exists
         if ($user) {
             // Validate the incoming request data
-            $request->validate([
-                'name' => 'sometimes|required',
-                'email' => 'sometimes|required|email',
-                'password' => 'sometimes|required|min:8',
-                'user_type' => 'sometimes|required'
-            ]);
+            // $request->validated([
+            //     'name' => 'sometimes|required',
+            //     'email' => 'sometimes|required|email',
+            //     'password' => 'sometimes|required|min:8',
+            //     'user_type' => 'sometimes|required'
+            // ]);
 
             // Update user details
             $user->name = $request->input('name', $user->name);
