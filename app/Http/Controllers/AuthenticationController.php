@@ -45,43 +45,7 @@ class AuthenticationController extends Controller
         ]);
     }
 
-    public function register(Request $request)
-    {
-        // validate inputs
-
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string| email',
-            'password' => 'required| min:4 ',
-            'user_type' => 'required ',
-        ]);
-        // check  if users exist 
-        $isUser = User::where('email', $request->get('email'))->first();
-        if ($isUser) {
-            return response()->json([
-                'status' => 400,
-                'message' => 'User Already Exists',
-
-
-            ]);
-        }
-        //Hash the password 
-        $hashedPass = Hash::make($request->get('password'));
-        $user  = User::create([
-
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => $hashedPass,
-            'user_type' => $request->get('user_type'),
-        ]);
-        // return response
-        return response()->json([
-            'status' => 200,
-            'message' => 'User Created Successfully',
-            'data' => $user
-
-        ]);
-    }
+   
 
 
 

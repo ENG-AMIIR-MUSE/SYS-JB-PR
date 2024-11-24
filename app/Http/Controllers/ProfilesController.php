@@ -29,7 +29,10 @@ class ProfilesController extends Controller
      */
     public function store(StoreProfilesRequest $request)
     {
-        //
+        
+        // valiudate 
+
+        $request->validated($request->all());
     }
 
     /**

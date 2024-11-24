@@ -28,5 +28,6 @@ Route::apiResource('/users', UserController::class)->withoutMiddleware(App\Http\
 
 // authentication controller
 Route::post('/login', [AuthenticationController::class, 'login'])->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
-Route::post('/register', [AuthenticationController::class, 'register'])->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
 Route::middleware('auth:sanctum')->post('/logout', [AuthenticationController::class, 'logout'])->middleware('auth:sanctum');
+
+
